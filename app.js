@@ -31,6 +31,9 @@ let radiusDisplay = document.getElementById('radius-display');
 let areaDisplay = document.getElementById('area-display')
 let perimeterDisplay = document.getElementById('perimeter-display');
 
+// get node list of output spans
+let outputSpans = document.querySelectorAll('.describe');
+
 
 class Shape {
     constructor(height, width) {
@@ -56,6 +59,7 @@ class Shape {
 
     selfDestruct () {
         this.shapeDiv.outerHTML = '';
+        this.clearDescription();
     }
 
     generatePosition() {
@@ -65,11 +69,11 @@ class Shape {
 
     adjustPosition() {
         if (this.posLeft + this.width > canvasWidth) {
-            this.posLeft = canvasWidth - this.width - 3;  
+            this.posLeft = canvasWidth - this.width ;  
         }
 
         if (this.posTop + this.height > canvasHeight) {
-            this.posTop = canvasHeight - this.height - 3;  
+            this.posTop = canvasHeight - this.height ;  
         }
     }
 
@@ -81,6 +85,12 @@ class Shape {
         radiusDisplay.textContent = this.radius;
         areaDisplay.textContent = this.area;
         perimeterDisplay.textContent = this.perimeter;
+    }
+
+    clearDescription() {
+        outputSpans.forEach((span) => {
+            span.textContent = '';
+        });
     }
 }
 
