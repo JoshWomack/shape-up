@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#form-container {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: .5em;
+}
+
+.form-div {
+    margin: 1em 2em;
+}
+
+input {
+    display:block;
+    margin-bottom: .5em;
+}
+
+#draw-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#side-panel {
+    width: 300px;
+}
+
+#canvas {
+    height: 600px;
+    width: 600px;
+    background-color: lightblue;
+    border:2px solid black;
+    position: relative;
+}
+
+.shape-div {
+    position: absolute;
+}
+
+.sq-div {
+    background-color: darkred;
+}
+
+.cir-div {
+    background-color: darkorchid;
+    border-radius: 50%;
+}
+
+.rect-div {
+    background-color: green;
+}
+
+.tri-div {
+    border-left-style: solid;
+    border-left-color: transparent;
+    border-right-style: solid;
+    border-right-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-color: yellow;
+}
