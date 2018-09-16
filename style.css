@@ -27,7 +27,7 @@ input {
 }
 
 #side-panel {
-    width: 300px;
+    width: 400px;
 }
 
 #canvas {
@@ -62,4 +62,9 @@ input {
     border-right-color: transparent;
     border-bottom-style: solid;
     border-bottom-color: yellow;
+}
+
+.describe {
+    font-weight: bold;
+    color:darkred;
 }
