@@ -1,39 +1,37 @@
 const canvasWidth = 600;
 const canvasHeight = 600;
 
-
 // div the shapes will be appended to
-let canvas = document.getElementById('canvas');
+const canvas = document.getElementById('canvas');
 
 // square input
-let insertSquare = document.getElementById('insert-square');
-let sqSideLengthInput = document.getElementById('sq-side-length');
+const insertSquare = document.getElementById('insert-square');
+const sqSideLengthInput = document.getElementById('sq-side-length');
 
 // circle input
-let insertCircle = document.getElementById('insert-cir');
-let cirRadiusInput = document.getElementById('cir-radius');
+const insertCircle = document.getElementById('insert-cir');
+const cirRadiusInput = document.getElementById('cir-radius');
 
 // rectangle input
-let insertRectangle = document.getElementById('insert-rect');
-let rectWidthInput = document.getElementById('rect-width');
-let rectHeightInput = document.getElementById('rect-height');
+const insertRectangle = document.getElementById('insert-rect');
+const rectWidthInput = document.getElementById('rect-width');
+const rectHeightInput = document.getElementById('rect-height');
 
 // triangle input
-let insertTriangle = document.getElementById('insert-tri');
-let triHeightInput = document.getElementById('tri-height');
+const insertTriangle = document.getElementById('insert-tri');
+const triHeightInput = document.getElementById('tri-height');
 
 //Output spans
 
-let nameOutput = document.getElementById('name-display');
-let widthOutput = document.getElementById('width-display');
-let heightOutput = document.getElementById('height-display');
-let radiusDisplay = document.getElementById('radius-display');
-let areaDisplay = document.getElementById('area-display')
-let perimeterDisplay = document.getElementById('perimeter-display');
+const nameOutput = document.getElementById('name-display');
+const widthOutput = document.getElementById('width-display');
+const heightOutput = document.getElementById('height-display');
+const radiusDisplay = document.getElementById('radius-display');
+const areaDisplay = document.getElementById('area-display')
+const perimeterDisplay = document.getElementById('perimeter-display');
 
 // get node list of output spans
-let outputSpans = document.querySelectorAll('.describe');
-
+const outputSpans = document.querySelectorAll('.describe');
 
 class Shape {
     constructor(height, width) {
@@ -55,6 +53,7 @@ class Shape {
         this.perimeter = (this.height * 2) + (this.width * 2);
         this.shapeDiv.addEventListener('dblclick', () => this.selfDestruct());
         this.shapeDiv.addEventListener('click', () => this.describe());
+        canvas.appendChild(this.shapeDiv);
     }
 
     selfDestruct () {
@@ -99,7 +98,6 @@ class Square extends Shape {
         super(sideLength, sideLength);
         this.name = 'Square';
         this.shapeDiv.classList.add('sq-div');
-        canvas.appendChild(this.shapeDiv);
     }
 }
 
@@ -111,7 +109,6 @@ class Circle extends Shape {
         this.area = (Math.PI * this.radius * this.radius).toFixed(1);
         this.perimeter = (2 * Math.PI * this.radius).toFixed(1);
         this.shapeDiv.classList.add('cir-div');
-        canvas.appendChild(this.shapeDiv);
     }
 }
 
@@ -120,7 +117,6 @@ class Rectangle extends Shape {
         super(height, width);
         this.name = 'Rectangle';
         this.shapeDiv.classList.add('rect-div');
-        canvas.appendChild(this.shapeDiv);
     }
 }
 
@@ -138,8 +134,6 @@ class Triangle extends Shape {
         this.shapeDiv.classList.add('tri-div');
         this.area = .5 * this.area;
         this.perimeter = (2 * this.height + Math.sqrt(2) * this.height).toFixed(1);
-        canvas.appendChild(this.shapeDiv);
-
     }
 }
 
@@ -155,9 +149,9 @@ insertCircle.addEventListener('click', () => {
 
 insertRectangle.addEventListener('click', () => {
     let newRectangle = new Rectangle(rectHeightInput.value, rectWidthInput.value);
-})
+});
 
 insertTriangle.addEventListener('click', () => {
     let newTriangle = new Triangle(triHeightInput.value);
-})
+});
 
