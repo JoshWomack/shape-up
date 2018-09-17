@@ -46,10 +46,9 @@ class Shape {
         this.adjustPosition();
         this.shapeDiv.style.left = `${this.posLeft}px`;
         this.shapeDiv.style.top = `${this.posTop}px`;
-        this.widthTimesHeight = this.width * this.height;
         this.name = 'Shape';
         this.radius = 0;
-        this.area = this.widthTimesHeight;
+        this.area = this.width * this.height;
         this.perimeter = (this.height * 2) + (this.width * 2);
         this.shapeDiv.addEventListener('dblclick', () => this.selfDestruct());
         this.shapeDiv.addEventListener('click', () => this.describe());
